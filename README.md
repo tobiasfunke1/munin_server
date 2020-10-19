@@ -32,7 +32,7 @@ server {
   server_name xxx.clients.your-server.de;
   
   access_log on;
-  access_log /var/log/nginx/access.log main;
+#  access_log /var/log/nginx/access.log main;
  
  location / {
 #    access_log on;
@@ -42,7 +42,7 @@ server {
     deny all;
     root /var/cache/munin/www;
     auth_basic "Munin HTTP Basic Auth";
-    auth_basic_user_file /etc/apache2/.htpasswd;
+    auth_basic_user_file /etc/nginx/.htpasswd;
   }
 
   listen 443 ssl; # managed by Certbot
@@ -54,7 +54,7 @@ server {
 
 server {
    access_log on;
-   access_log /var/log/nginx/access.log main;
+#   access_log /var/log/nginx/access.log main;
 
     if ($host = xxx.clients.your-server.de) {
         return 301 xxx.clients.your-server.de$request_uri;
@@ -71,7 +71,7 @@ server {
 
 server {
   access_log on;
-  access_log /var/log/nginx/access.log main;
+#  access_log /var/log/nginx/access.log main;
   
     if ($host = x.x.x.x) { # server ip
         return 301 xxx.clients.your-server.de$request_uri;
@@ -92,4 +92,6 @@ server {
     deny all;
   }
 }
+
+certbot:
 ```
