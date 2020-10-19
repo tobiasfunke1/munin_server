@@ -3,6 +3,7 @@
 ```
 apt update
 apt upgrade
+apt install ufw tcpdump
 
 ssh:
 nano /etc/ssh/sshd_config 
@@ -16,7 +17,7 @@ systemctl enable wg-quick@wg0.service
 systemctl daemon-reload
 
 munin:
-apt install munin munin-node munin-plugins-extra libwww-perl tcpdump ufw
+apt install munin munin-node munin-plugins-extra libwww-perl
 
 
 fail2ban:
