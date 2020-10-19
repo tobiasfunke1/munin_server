@@ -19,13 +19,11 @@ systemctl daemon-reload
 munin:
 apt install munin munin-node munin-plugins-extra libwww-perl
 
-
 fail2ban:
 apt install fail2ban
 nano /etc/fail2ban/jail.d/defaults-debian.conf
 port = xx22
 service fail2ban restart
-
 
 nginx:
 apt install nginx
