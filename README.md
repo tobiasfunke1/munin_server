@@ -12,6 +12,8 @@ PasswordAuthentication no
 
 wireguard:
 apt install wireguard wireguard-dkms wireguard-tools
+systemctl enable wg-quick@wg0.service
+systemctl daemon-reload
 
 munin:
 apt install munin munin-node munin-plugins-extra libwww-perl tcpdump ufw
@@ -94,4 +96,8 @@ server {
 }
 
 certbot:
+add-apt-repository ppa:certbot/certbot
+apt-get install certbot python3-certbot-nginx
+test renew: certbot renew --dry-run
+
 ```
