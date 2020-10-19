@@ -1,5 +1,6 @@
 # munin_server
 
+```
 apt update
 apt upgrade
 
@@ -91,3 +92,4 @@ server {
     deny all;
   }
 }
+```
