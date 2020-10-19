@@ -98,6 +98,8 @@ server {
 certbot:
 add-apt-repository ppa:certbot/certbot
 apt-get install certbot python3-certbot-nginx
-test renew: certbot renew --dry-run
+certbot --nginx
+redirect: yes
+certbot renew --dry-run
 
 ```
