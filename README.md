@@ -5,6 +5,15 @@ apt update
 apt upgrade
 apt install ufw tcpdump
 
+swap: [https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/]
+fallocate -l 32G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+nano /etc/fstab
+/swapfile swap swap defaults 0 0
+sudo swapon --show
+
 ssh:
 nano /etc/ssh/sshd_config 
 Port xx22
