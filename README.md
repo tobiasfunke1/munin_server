@@ -4,8 +4,10 @@
 apt update
 apt upgrade
 apt install ufw tcpdump
+```
 
-swap: [https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/]
+### swap
+```
 fallocate -l 32G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
@@ -14,27 +16,39 @@ nano /etc/fstab
 /swapfile swap swap defaults 0 0
 sudo swapon --show
 
-ssh:
+[https://linuxize.com/post/how-to-add-swap-space-on-ubuntu-18-04/]
+```
+
+### ssh
+```
 nano /etc/ssh/sshd_config 
 Port xx22
 PubkeyAuthentication yes
 PasswordAuthentication no
+```
 
-wireguard:
+### wireguard
+```
 apt install wireguard wireguard-dkms wireguard-tools
 systemctl enable wg-quick@wg0.service
 systemctl daemon-reload
+```
 
-munin:
+### munin
+```
 apt install munin munin-node munin-plugins-extra libwww-perl
+```
 
-fail2ban:
+### fail2ban
+```
 apt install fail2ban
 nano /etc/fail2ban/jail.d/defaults-debian.conf
 port = xx22
 service fail2ban restart
+```
 
-nginx:
+### nginx:
+```
 apt install nginx
 rm /etc/nginx/sites-enabled/default 
 nano /etc/nginx
@@ -102,12 +116,13 @@ server {
     deny all;
   }
 }
+```
 
-certbot:
+### certbot
+```
 add-apt-repository ppa:certbot/certbot
 apt-get install certbot python3-certbot-nginx
 certbot --nginx
 redirect: yes
 certbot renew --dry-run
-
 ```
